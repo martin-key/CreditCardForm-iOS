@@ -135,32 +135,32 @@ public class CreditCardFormView : UIView {
         cardView.clipsToBounds = true
         
         if colors.count < 7 {
-            setBrandColors()
+//            setBrandColors()
         }
         
         createCardView()
         createFrontView()
         createbackImage()
-        createBrandImageView()
+//        createBrandImageView()
         createCardNumber()
         createCardHolder()
         createCardHolderText()
         createExpireDate()
         createExpireDateText()
-        createChipImage()
+//        createChipImage()
         createBackView()
         createBackLine()
         createCVC()
     }
     
     private func setGradientBackground(v: UIView, top: CGColor, bottom: CGColor) {
-        let colorTop =  top
-        let colorBottom = bottom
-        gradientLayer.colors = [ colorTop, colorBottom]
-        gradientLayer.locations = [ 0.0, 1.0]
-        gradientLayer.frame = v.bounds
-        backView.backgroundColor = defaultCardColor
-        v.layer.addSublayer(gradientLayer)
+//        let colorTop =  top
+//        let colorBottom = bottom
+//        gradientLayer.colors = [ colorTop, colorBottom]
+//        gradientLayer.locations = [ 0.0, 1.0]
+//        gradientLayer.frame = v.bounds
+//        backView.backgroundColor = defaultCardColor
+//        v.layer.addSublayer(gradientLayer)
     }
     
     private func createCardView() {
@@ -256,7 +256,7 @@ public class CreditCardFormView : UIView {
         
         self.addConstraint(NSLayoutConstraint(item: cardNumber, attribute: NSLayoutAttribute.centerY, relatedBy: NSLayoutRelation.equal, toItem: cardView, attribute: NSLayoutAttribute.centerY, multiplier: 1.0, constant: 0.0));
         
-        self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:[view(==200)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": cardNumber]));
+        self.addConstraint(NSLayoutConstraint(item: cardNumber, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: cardView, attribute: NSLayoutAttribute.width, multiplier: 0.9, constant: 0.0))
         
         self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[view(==30)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": cardNumber]));
     }
@@ -411,7 +411,7 @@ public class CreditCardFormView : UIView {
             guard let type = v.type(from: "\(cardN as String?)") else {
                 self.brandImageView.image = nil
                 if let name = colors["NONE"] {
-                    setType(colors: [name[0], name[1]], alpha: 0.5, back: name[0])
+//                    setType(colors: [name[0], name[1]], alpha: 0.5, back: name[0])
                 }
                 return
             }
@@ -426,10 +426,10 @@ public class CreditCardFormView : UIView {
                 }else {
                     amex = false
                 }
-                self.brandImageView.image = UIImage(named: type.name, in: Bundle.currentBundle(), compatibleWith: nil)
-                setType(colors: [name[0], name[1]], alpha: 1, back: name[0])
+//                self.brandImageView.image = UIImage(named: type.name, in: Bundle.currentBundle(), compatibleWith: nil)
+//                setType(colors: [name[0], name[1]], alpha: 1, back: name[0])
             }else{
-                setType(colors: [self.colors["DEFAULT"]![0], self.colors["DEFAULT"]![0]], alpha: 1, back: self.colors["DEFAULT"]![0])
+//                setType(colors: [self.colors["DEFAULT"]![0], self.colors["DEFAULT"]![0]], alpha: 1, back: self.colors["DEFAULT"]![0])
             }
         }
     }
